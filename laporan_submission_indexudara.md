@@ -98,18 +98,20 @@ Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report
 
 1. Confusion Matrix
     
-    ![kelas](?raw=true)
-    ![kelas](?raw=true)
+    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
+    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
        
     > Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan pada matrik di atas.
     > Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
     > Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
 
 3. Classification Report
-
-    ![kelas](?raw=true)
         
   **Random Forest**
+
+    ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
+  
+  
   - Precision: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
   Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
@@ -119,14 +121,17 @@ Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report
   Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
   Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
   Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
-  - 
+    
   - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
   Untuk Kelas 0, F1-Score adalah 0.95.
   Untuk Kelas 1, F1-Score adalah 0.98.
   Untuk Kelas 2, F1-Score adalah 1.00.
 
   **KNN**
-    - Precision: Proporsi dari prediksi positif yang benar-benar positif.
+
+  ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
+  
+  - Precision: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
   Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 91% dari mereka benar-benar adalah Kelas 1.
   Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 90% dari mereka benar-benar adalah Kelas 2.
@@ -135,10 +140,10 @@ Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report
   Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
   Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
   Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
-  - 
+    
   - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
   Untuk Kelas 0, F1-Score adalah 0.93.
   Untuk Kelas 1, F1-Score adalah 0.89.
   Untuk Kelas 2, F1-Score adalah 0.90.
 
-Berdasarkan hasil evaluasi yang telah dilakukan, Random Forest memiliki performa lebih baik daripada KNN dalam melakukan klasifikasi indeks udara di Jakarta.
+**Berdasarkan hasil evaluasi yang telah dilakukan, Random Forest memiliki performa lebih baik daripada KNN dalam melakukan klasifikasi indeks udara di Jakarta.**
