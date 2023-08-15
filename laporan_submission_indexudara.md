@@ -47,9 +47,12 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 **EDA**
 1. Distribusi kelas:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/jml_per_kat.png?raw=true)
-3. Pesebaran kelas di 5 stasiun:
-4. Jumlah parameter critical:
+   >Terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data'      akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3, maka pada klasifikasi ini hanya akan       digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
 
+3. Pesebaran kelas di 5 stasiun:
+   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/5_stasiun.png?raw=true)
+5. Jumlah parameter critical:
+   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/titik_critical.png?raw=true)
 
 
 ## Data Preparation
