@@ -22,7 +22,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, f1_score
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler, StandardScaler
 from pprint import pprint
 
@@ -151,6 +151,8 @@ print(columns_with_dash)
 
 """cek data duplikat"""
 
+data_br.drop('tanggal', axis=1, inplace=True)
+
 data_br.duplicated().sum()
 
 """tidak ada data duplikat, missing value dan data duplikat berhasil ditangani."""
@@ -210,12 +212,9 @@ pprint(label_mappings)
 
 df_mod.head(5)
 
-df_mod2 = df_mod.drop('tanggal', axis=1)
-df_mod2.head(5)
-
 #normalisasi data
 standard_scaler = StandardScaler()
-df_standard = standard_scaler.fit_transform(df_mod2)
+df_standard = standard_scaler.fit_transform(df_mod)
 df_standard
 
 # Membagi data menjadi training set dan test set
@@ -231,13 +230,13 @@ Algoritma 1 : Random Forest
 # Random Forest
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
 rf.fit(X_train, y_train)
-rf_predictions = rf_model.predict(X_test)
+rf_predictions = rf.predict(X_test)
 print("Akurasi Random Forest:", accuracy_score(y_test, rf_predictions))
 
 """Algoritma 2 : SVM"""
 
 # KNN
-knn = KNeighborsClassifier(n_neighbors=8)
+knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, y_train)
 knn_predictions = knn.predict(X_test)
 print("Akurasi KNN:", accuracy_score(y_test, knn_predictions))
@@ -263,10 +262,20 @@ cnf_matrix = confusion_matrix(y_test, rf_predictions)
 
 # Plot confusion matrix
 sns.heatmap(cnf_matrix, annot=True, cbar=False, cmap='Blues')
-plt.title('Confusion Matrix', fontsize=15)
+plt.title('Confusion Matrix RF', fontsize=15)
 plt.show()
 
 print(classification_report(y_test, rf_predictions))
+
+# hitung confusion matrix dari data testing
+cnf_matrix2 = confusion_matrix(y_test, knn_predictions)
+
+# Plot confusion matrix
+sns.heatmap(cnf_matrix2, annot=True, cbar=False, cmap='Blues')
+plt.title('Confusion Matrix KNN', fontsize=15)
+plt.show()
+
+print(classification_report(y_test, knn_predictions))
 
 prediksi = X_test[:5].copy()
 pred_dict = {'y_true':y_test[:5]}
