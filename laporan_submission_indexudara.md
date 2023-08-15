@@ -47,13 +47,17 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 **EDA**
 1. Distribusi kelas:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/jml_per_kat.png?raw=true)
-   >Terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data'      akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3, maka pada klasifikasi ini hanya akan       digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
+
+   >Terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data' akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3, maka pada klasifikasi ini hanya akan       digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
 
 3. Pesebaran kelas di 5 stasiun:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/5_stasiun.png?raw=true)
+
+   >Gambar di atas adalah visualisasi dari 5 data berdasarkan stasiun terbanyak. Stasiun Lubang Buaya merupakan daerah    dengan indeks udara tidak sehat terbanyak dan Bunderan HI adalah yang paling sedikit. Sementara itu, seluruh stasiun memiliki kategori sedang yang hampir sama dengan terbanyak adalah stasiun Jagakarsa
+
 5. Jumlah parameter critical:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/titik_critical.png?raw=true)
-
+   >Parameter dengan hasil pengukuran tertinggi terbanyak adalah PM25. Menurut Kementerian Lingkungan Hidup dan Kehutanan, parameter PM2,5 merupakan parameter pencemar udara paling berpengaruh terhadap kesehatan manusia.
 
 ## Data Preparation
 Pada tahapan ini dilakukan pendefinisian data berdsarkan 3 kategori yang telah ditetapkan. Kemudian juga dilakukan penghapusan pada kolom tanggal dan stasiun karena kolom tersebut tidak akan digunakan untuk klasifikasi. Setelah itu dilakukan pengecekan jumlah data dan didapatkan data untuk kolom pm25 hanya sebanyak 1749 dari 3655 data. Sedangkan pm25 merupakan salah satu faktor penting dalam klasifikasi kategori pencemaran udara, oleh karena itu data yang akan digunakan adalah data yang memiliki pm25 non-nul. Kemudian dilakukan pengecekan missing value serta duplikasi data dan dilakukan penanganan agar data bersih untuk pemodelan. Setelah data bersih tersisa 1328 data kategori sedang, 149 kategori baik, dan 272 kategori tidak sehat. Melihat jumlahnya, data-data ini dipilih sebanyak 200 data kategori sedang, 149 kategori baik, dan 200 data kategori tidak seha untuk dilakukan pembagian data menjadi train dan test.
