@@ -31,7 +31,6 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 **Data Numerikal:**
 ```markdown
 1. tanggal : Tanggal pengukuran kualitas udara
-2. stasiun : Lokasi pengukuran di stasiun
 3. pm10 : Partikulat salah satu parameter yang diukur
 4. pm25 : Partikulat salah satu parameter yang diukur
 5. so2 : Sulfida (dalam bentuk SO2) salah satu parameter yang diukur
@@ -43,6 +42,7 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 
 **Data Kategorikal:**
 ```markdown
+2. stasiun : Lokasi pengukuran di stasiun
 10. critical : Parameter yang hasil pengukurannya paling tinggi
 11. categori : Kategori hasil perhitungan indeks standar pencemaran udara
 ```
@@ -97,12 +97,16 @@ Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu K-Neare
 Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report.
 
 1. Confusion Matrix
-    Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
+
+Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
+
     ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
     > Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
 
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
     > Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
+
+
 
 3. Classification Report
         
