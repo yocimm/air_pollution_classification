@@ -114,7 +114,7 @@ Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan 
         
   **Random Forest**
 
-    ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
+  ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
  
   - Precision: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
