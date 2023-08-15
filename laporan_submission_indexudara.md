@@ -97,12 +97,11 @@ Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu K-Neare
 Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report.
 
 1. Confusion Matrix
-    
+    Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
     ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
-    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
-       
-    > Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan pada matrik di atas.
     > Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
+
+   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
     > Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
 
 3. Classification Report
@@ -110,8 +109,7 @@ Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report
   **Random Forest**
 
     ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
-  
-  
+ 
   - Precision: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
   Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
