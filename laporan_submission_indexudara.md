@@ -89,9 +89,15 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 7. Membagi data training dan testing dengan jumlah data testing sebanyak 20% dari keseluruhan data.
 
 ## Modeling
-Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu K-Nearest Neighbor Classifier dan Random Forest Classifier.
-  - **KNN** dengan jumlah neighbors yang optimal adalah sebanyak 3. 
-  - **Random Forest** dengan jumlah estimator diatur sebanyak 100.
+Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu Random Forest Classifier dan K-Nearest Neighbor Classifier.
+
+  - **Random Forest** 
+    Random Forest adalah algoritma berbasis ensemble yang menggabungkan beberapa pohon keputusan untuk menghasilkan prediksi. Random Forest mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical', kemudian mencoba menemukan pola terbaik untuk memprediksi 'categori' berdasarkan kombinasi fitur-fitur tersebut. Pemodelan ini menggunakan random forest dengan jumlah estimator sebanyak 100 (100 pohon keputusan yang berbeda dari dataset pelatihan). Dengan jumlah tersebut, Random Forest dapat mengurangi varians yang mungkin ada dalam satu pohon tunggal, sehingga meningkatkan stabilitas dan akurasi model. Pada pelatihan ini random forest memiliki nilai akurasi sebesar 0,98.
+    
+  - **KNN** dengan jumlah neighbors yang optimal adalah sebanyak 3.
+    KNN adalah algoritma berbasis instance yang bekerja dengan membandingkan instance baru dengan instance dalam dataset pelatihan. KNN mempertimbangkan 'k' titik data pelatihan terdekat untuk membuat prediksi, nilai n_neighbors pada pelatihan ini yaitu 3. KNN akan mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical' kemudian mencari 3 tetangga terdekat dalam data pelatihan untuk memprediksi 'categori' dari data baru. Pada pelatihan ini KNN memiliki nilai akurasi sebesar 0,90.
+
+Dari hasil akurasi kedua model tersebut, Random Forest adalah model terbaik untuk klasifikasi pada kasus indeks pencemaran udara ini.
 
 ## Evaluation
 Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report.
