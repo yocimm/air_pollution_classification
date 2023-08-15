@@ -74,9 +74,9 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 2. Membagi data sesuai label agar memiliki distribusi yang tidak jauh berbeda. Hasil cleaning didapati data 1328 SEDANG, 149 BAIK, 272 TIDAK SEHAT. Oleh karena itu, digunakan 200 SEDANG, 149 BAIK, dan 200 TIDAK SEHAT.
 
 3. Mengubah data kategorik yaitu stasiun, critical, dan categori menjadi numerik dengan labelencoder.
-   'categori': {'BAIK': 0, 'SEDANG': 1, 'TIDAK SEHAT': 2},
-   'critical': {'O3': 0, 'PM10': 1, 'PM25': 2, 'SO2': 3},
-   'stasiun': {'DKI1 (Bunderan HI)': 0,
+   - 'categori': {'BAIK': 0, 'SEDANG': 1, 'TIDAK SEHAT': 2},
+   - 'critical': {'O3': 0, 'PM10': 1, 'PM25': 2, 'SO2': 3},
+   - 'stasiun': {'DKI1 (Bunderan HI)': 0,
                 'DKI2 (Kelapa Gading)': 1,
                 'DKI3 (Jagakarsa)': 2,
                 'DKI4 (Lubang Buaya)': 3,
@@ -101,13 +101,44 @@ Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report
     ![kelas](?raw=true)
     ![kelas](?raw=true)
        
-    > Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan pada matrik di atas. Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK. Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
+    > Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan pada matrik di atas.
+    > Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
+    > Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
 
 3. Classification Report
 
     ![kelas](?raw=true)
-    ![kelas](?raw=true)
         
-  - Dari precision, persentase model berhasil memprediksi kasus positif / heart disease dari seluruh kasus positif yang diprediksi adalah 89%. Dan 86% untuk kasus sebaliknya
-  - Dari recall, persentase model berhasil memprediksi kasus positif / heart disease dengan benar dari seluruh kasus positif aktul adalah 89%. dan 86% untuk kasus sebaliknya.
-  - Sedangkan f1 score adalah harmonic mean dari precision dan recall. Ini juga digunakan untuk kasus unbalanced data karena memperhitungkan FP dan FN.
+  **Random Forest**
+  - Precision: Proporsi dari prediksi positif yang benar-benar positif.
+  Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
+  Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
+  Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 100% dari mereka benar-benar adalah Kelas 2.
+
+  - Recall (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar. 
+  Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+  Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
+  Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
+  - 
+  - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
+  Untuk Kelas 0, F1-Score adalah 0.95.
+  Untuk Kelas 1, F1-Score adalah 0.98.
+  Untuk Kelas 2, F1-Score adalah 1.00.
+
+  **KNN**
+    - Precision: Proporsi dari prediksi positif yang benar-benar positif.
+  Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
+  Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 91% dari mereka benar-benar adalah Kelas 1.
+  Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 90% dari mereka benar-benar adalah Kelas 2.
+
+  - Recall (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar. 
+  Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+  Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
+  Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
+  - 
+  - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
+  Untuk Kelas 0, F1-Score adalah 0.93.
+  Untuk Kelas 1, F1-Score adalah 0.89.
+  Untuk Kelas 2, F1-Score adalah 0.90.
+
+Berdasarkan hasil evaluasi yang telah dilakukan, Random Forest memiliki performa lebih baik daripada KNN dalam melakukan klasifikasi indeks udara di Jakarta.
