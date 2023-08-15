@@ -46,7 +46,7 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 ```
 **EDA**
 1. Distribusi kelas:
-   
+   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/jml_per_kat.png)
 3. Pesebaran kelas di 5 stasiun:
 4. Jumlah parameter critical:
 
