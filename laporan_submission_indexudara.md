@@ -133,7 +133,7 @@ Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan 
 
   **KNN**
 
-  ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
+  ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-knn.png?raw=true)
   
   - Precision: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
