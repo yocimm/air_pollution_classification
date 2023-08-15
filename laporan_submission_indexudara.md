@@ -45,10 +45,10 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 11. categori : Kategori hasil perhitungan indeks standar pencemaran udara
 ```
 **EDA**
-
-
-Terdapat pula visualisasi data tentang jumlah data berdasarkan label dan didapatkan insight :
-terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data' akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3, maka pada klasifikasi ini hanya akan digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
+1. Distribusi kelas:
+   
+3. Pesebaran kelas di 5 stasiun:
+4. Jumlah parameter critical:
 
 
 
