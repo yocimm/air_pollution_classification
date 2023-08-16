@@ -145,6 +145,8 @@ Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan 
     - Untuk Kelas 1, _F1-Score_ adalah 0.98.
     - Untuk Kelas 2, _F1-Score_ adalah 1.00.
 
+
+
   **_Classification Report KNN_:**
 
   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-knn.png?raw=true)
