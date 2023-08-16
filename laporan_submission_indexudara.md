@@ -1,6 +1,6 @@
-# Laporan Proyek Machine Learning - Paramita Citra Indah Mulia
+# Laporan Proyek _Machine Learning_ - Paramita Citra Indah Mulia
 
-## Project Overview
+## _Project Overview_
 
 **Latar Belakang:**
 
@@ -8,25 +8,25 @@ Ibu Kota Jakarta sudah lama menghadapi tantangan besar dalam mengatasi polusi ud
 
 
 
-## Business Understanding
-### **Problem Statements:**
+## _Business Understanding_
+### **_Problem Statements:_**
 Berdasarkan pada latar belakang di atas, permasalahan pada proyek ini adalah sebagai berikut:
-- Bagaimana kita dapat mengklasifikasikan kualitas udara di Jakarta berdasarkan parameter yang diukur?
- - Apa metode terbaik untuk klasifikasi kualitas udara berdasarkan data yang tersedia?
+- Bagaimana cara melakukan pemodelan dengan _machine learning_ untuk klasifikasi kualitas udara di Jakarta?
+- Apa metode terbaik untuk klasifikasi kualitas udara berdasarkan data yang tersedia?
     
-### **Goals:**
+### **_Goals:_**
 Tujuan dari proyek ini adalah sebagai berikut:
 - Mengembangkan model yang dapat mengklasifikasikan kualitas udara di Jakarta berdasarkan parameter yang diukur.
 - Membandingkan dua metode machine learning untuk menentukan metode terbaik dalam klasifikasi kualitas udara.
     
-### **Solution Statements:**
-- Klasifikasi menggunakan Algoritma dua algoritma machine learning yaitu Random Forest dan KNeighbors
+### **_Solution Statements:_**
+- Klasifikasi menggunakan Algoritma dua algoritma machine learning yaitu _Random Forest_ dan _KNeighbors (KNN)_
 - Model dengan akurasi tertinggi dari data latih adalah model terbaik yang akan digunakan untuk klasifikasi. 
 
 
 
 ## Data Understanding
-Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 yang didapatkan dari Jakarta Open Data (https://data.jakarta.go.id/). Data ini terdiri dari 3655 baris (hari) dengan 11 variabel yaitu:
+Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 yang didapatkan dari **Jakarta Open Data** (https://data.jakarta.go.id/). Data ini terdiri dari 3655 baris (hari) dengan 11 variabel yaitu:
 
 **Data Numerikal:**
 ```markdown
@@ -34,7 +34,7 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 3. pm10 : Partikulat salah satu parameter yang diukur
 4. pm25 : Partikulat salah satu parameter yang diukur
 5. so2 : Sulfida (dalam bentuk SO2) salah satu parameter yang diukur
-6. co : Carbon Monoksida salah satu parameter yand diukur
+6. co : Karbon Monoksida salah satu parameter yand diukur
 7. o3 : Ozon salah satu parameter yang diukur
 8. no2 : NItrogen dioksida salah satu parameter yang diukur
 9. max : Nilai ukur paling tinggi dari seluruh parameter yang diukur dalam waktu yang sama
@@ -59,21 +59,21 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 
 5. Jumlah parameter critical:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/titik_critical.png?raw=true)
-   >Parameter dengan hasil pengukuran tertinggi terbanyak adalah PM25. Menurut Kementerian Lingkungan Hidup dan Kehutanan, parameter PM2,5 merupakan parameter pencemar udara paling berpengaruh terhadap kesehatan manusia.
+   >Parameter dengan hasil pengukuran tertinggi terbanyak adalah PM25. Menurut Kementerian Lingkungan Hidup dan Kehutanan, parameter PM25 merupakan parameter pencemar udara paling berpengaruh terhadap kesehatan manusia.
 
 
 
-## Data Preparation
-1. Data Cleaning
+## _Data Preparation_
+1. _Data Cleaning_
 
     - Menghapus data dengan kategori SANGAT TIDAK SEHAT dan TIDAK ADA DATA
     - Menyeleksi data dengan nilai pm25 non-null karena merupakan parameter pencemar udara paling berpengaruh terhadap kesehatan. Jumlah data awal 3655 menjadi 1749 data,
     - Melakukan imputasi dengan mean pada missing value fitur 'pm10', 'so2', 'co', 'o3', 'no2', 'pm25'.
     - Menghapus fitur tanggal untuk melakukan pengecekan data duplikat dan didapatkan 0 duplikasi data.
 
-2. Membagi data sesuai label agar memiliki distribusi yang tidak jauh berbeda. Hasil cleaning didapati data 1328 SEDANG, 149 BAIK, 272 TIDAK SEHAT. Oleh karena itu, digunakan 200 SEDANG, 149 BAIK, dan 200 TIDAK SEHAT.
+2. Membagi data sesuai label agar memiliki distribusi yang tidak jauh berbeda. Hasil _cleaning_ didapati data 1328 SEDANG, 149 BAIK, 272 TIDAK SEHAT. Oleh karena itu, digunakan 200 SEDANG, 149 BAIK, dan 200 TIDAK SEHAT.
 
-3. Mengubah data kategorik yaitu stasiun, critical, dan categori menjadi numerik dengan labelencoder.
+3. Mengubah data kategorik yaitu stasiun, critical, dan categori menjadi numerik dengan _LabelEncoder_.
    - 'categori': {'BAIK': 0, 'SEDANG': 1, 'TIDAK SEHAT': 2},
    - 'critical': {'O3': 0, 'PM10': 1, 'PM25': 2, 'SO2': 3},
    - 'stasiun': {'DKI1 (Bunderan HI)': 0,
@@ -82,78 +82,81 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
                 'DKI4 (Lubang Buaya)': 3,
                 'DKI5 (Kebon Jeruk) Jakarta Barat': 4}
 
-5. Memisahkan kolom fitur dengan kolom target yang disimpan secara berturut-turut pada variable X dan y.
+5. Memisahkan kolom fitur dengan kolom target yang disimpan secara berturut-turut pada variabel X dan y.
 
-6. Melakkukan normalisasi pada data dengan StandarScaler.
+6. Melakukan normalisasi pada data dengan _StandarScaler_.
 
 7. Membagi data training dan testing dengan jumlah data testing sebanyak 20% dari keseluruhan data.
 
-## Modeling
-Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu Random Forest Classifier dan K-Nearest Neighbor Classifier.
+## _Modeling_
+Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu _Random Forest Classifier_ dan _K-Nearest Neighbor Classifier_.
 
-  - **Random Forest** 
-    Random Forest adalah algoritma berbasis ensemble yang menggabungkan beberapa pohon keputusan untuk menghasilkan prediksi. Random Forest mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical', kemudian mencoba menemukan pola terbaik untuk memprediksi 'categori' berdasarkan kombinasi fitur-fitur tersebut. Pemodelan ini menggunakan random forest dengan jumlah estimator sebanyak 100 (100 pohon keputusan yang berbeda dari dataset pelatihan). Dengan jumlah tersebut, Random Forest dapat mengurangi varians yang mungkin ada dalam satu pohon tunggal, sehingga meningkatkan stabilitas dan akurasi model. Pada pelatihan ini random forest memiliki nilai akurasi sebesar 0,98.
+  - **_Random Forest_** 
+    _Random Forest_ adalah algoritma berbasis _ensemble_ yang menggabungkan beberapa pohon keputusan untuk menghasilkan prediksi. _Random Forest_ mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical', kemudian mencoba menemukan pola terbaik untuk memprediksi 'categori' berdasarkan kombinasi fitur-fitur tersebut. Pemodelan ini menggunakan _random forest_ dengan jumlah estimator sebanyak 100 (100 pohon keputusan yang berbeda dari dataset pelatihan). Dengan jumlah tersebut, _random forest_ dapat mengurangi _varians_ yang mungkin ada dalam satu pohon tunggal, sehingga meningkatkan stabilitas dan akurasi model. 
     
-  - **KNN** dengan jumlah neighbors yang optimal adalah sebanyak 3.
-    KNN adalah algoritma berbasis instance yang bekerja dengan membandingkan instance baru dengan instance dalam dataset pelatihan. KNN mempertimbangkan 'k' titik data pelatihan terdekat untuk membuat prediksi, nilai n_neighbors pada pelatihan ini yaitu 3. KNN akan mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical' kemudian mencari 3 tetangga terdekat dalam data pelatihan untuk memprediksi 'categori' dari data baru. Pada pelatihan ini KNN memiliki nilai akurasi sebesar 0,90.
+  - **_KNN_** dengan jumlah _neighbors_ yang optimal adalah sebanyak 3.
+    _KNN_ adalah algoritma berbasis _instance_ yang bekerja dengan membandingkan _instance_ baru dengan _instance_ dalam dataset pelatihan. _KNN_ mempertimbangkan 'k' titik data pelatihan terdekat untuk membuat prediksi, nilai _n_neighbors_ pada pelatihan ini yaitu 3. _KNN_ akan mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical' kemudian mencari 3 tetangga terdekat dalam data pelatihan untuk memprediksi 'categori' dari data baru.
 
-Dari hasil akurasi kedua model tersebut, Random Forest adalah model terbaik untuk klasifikasi pada kasus indeks pencemaran udara ini.
 
 ## Evaluation
-Metrik evaluasi yang digunakan adalah Confusion matrix dan Classification report.
+Pada pelatihan ini _random forest_ memiliki nilai akurasi sebesar 0,98.
+Pada pelatihan ini KNN memiliki nilai akurasi sebesar 0,90.
+Dari hasil akurasi kedua model tersebut, Random Forest adalah model terbaik untuk klasifikasi pada kasus indeks pencemaran udara ini.
 
-1. Confusion Matrix
+Selain penilaian dengan _accurary_score_ digunakan pula metrik evaluasi yaitu _Confusion matrix_ dan _Classification report_.
+
+1. _Confusion Matrix_
 
 Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
 
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
 
-> Dengan RandomForest didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
+> Dengan _Random Forest_ didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
 
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
 
-> Sementara dengan KNN didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
+> Sementara dengan _KNN_ didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
 
 
 
-3. Classification Report
+3. _Classification Report_
         
-  **Random Forest**
+  **_Random Forest_**
 
   ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
  
-  - Precision: Proporsi dari prediksi positif yang benar-benar positif.
+  - _Precision_: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
   Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
   Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 100% dari mereka benar-benar adalah Kelas 2.
 
-  - Recall (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar. 
-  Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
-  Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
-  Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
+  - _Recall_ (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar.
+    Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+    Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
+    Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
     
-  - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
-  Untuk Kelas 0, F1-Score adalah 0.95.
-  Untuk Kelas 1, F1-Score adalah 0.98.
-  Untuk Kelas 2, F1-Score adalah 1.00.
+  - _F1-Score_: Rata-rata harmonik dari _precision_ dan _recall_. Memberikan kesimbangan antara _precision_ dan _recall_.
+    Untuk Kelas 0, F1-Score adalah 0.95.
+    Untuk Kelas 1, F1-Score adalah 0.98.
+    Untuk Kelas 2, F1-Score adalah 1.00.
 
   **KNN**
 
   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-knn.png?raw=true)
   
-  - Precision: Proporsi dari prediksi positif yang benar-benar positif.
+  - _Precision_: Proporsi dari prediksi positif yang benar-benar positif.
   Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
   Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 91% dari mereka benar-benar adalah Kelas 1.
   Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 90% dari mereka benar-benar adalah Kelas 2.
 
-  - Recall (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar. 
-  Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
-  Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
-  Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
+  - _Recall_ (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar.
+    Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+    Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
+    Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
     
-  - F1-Score: Rata-rata harmonik dari precision dan recall. Memberikan kesimbangan antara precision dan recall. 
-  Untuk Kelas 0, F1-Score adalah 0.93.
-  Untuk Kelas 1, F1-Score adalah 0.89.
-  Untuk Kelas 2, F1-Score adalah 0.90.
+  - _F1-Score_: Rata-rata harmonik dari _precision_ dan _recall_. Memberikan kesimbangan antara _precision_ dan _recall_.
+    Untuk Kelas 0, _F1-Score_ adalah 0.93.
+    Untuk Kelas 1, _F1-Score_ adalah 0.89.
+    Untuk Kelas 2, _F1-Score_ adalah 0.90.
 
-**Berdasarkan hasil evaluasi yang telah dilakukan, Random Forest memiliki performa lebih baik daripada KNN dalam melakukan klasifikasi indeks udara di Jakarta.**
+**Berdasarkan hasil evaluasi yang telah dilakukan, _Random Forest_ memiliki performa lebih baik daripada _KNeighbors_ dalam melakukan klasifikasi indeks udara di Jakarta.**
