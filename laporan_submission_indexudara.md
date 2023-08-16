@@ -98,7 +98,7 @@ Pemodelan pada proyek ini menggunakan 2 algoritma machine learning yaitu _Random
     _KNN_ adalah algoritma berbasis _instance_ yang bekerja dengan membandingkan _instance_ baru dengan _instance_ dalam dataset pelatihan. _KNN_ mempertimbangkan 'k' titik data pelatihan terdekat untuk membuat prediksi, nilai _n_neighbors_ pada pelatihan ini yaitu 3. _KNN_ akan mempertimbangkan fitur 'stasiun', 'pm10', 'so2', 'co', 'o3', 'no2', 'max', 'pm25', dan 'critical' kemudian mencari 3 tetangga terdekat dalam data pelatihan untuk memprediksi 'categori' dari data baru.
 
 
-## Evaluation
+## _Evaluation_
 Pada pelatihan ini _random forest_ memiliki nilai akurasi sebesar 0,98.
 Pada pelatihan ini KNN memiliki nilai akurasi sebesar 0,90.
 Dari hasil akurasi kedua model tersebut, Random Forest adalah model terbaik untuk klasifikasi pada kasus indeks pencemaran udara ini.
@@ -108,12 +108,16 @@ Selain penilaian dengan _accurary_score_ digunakan pula metrik evaluasi yaitu _C
 1. _Confusion Matrix_
 
 Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
+
 **_Confusion Matrix Random Forest_:**
+
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
 
 > Dengan _Random Forest_ didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
 
+
 **_Confusion Matrix KNN_:**
+
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
 
 > Sementara dengan _KNN_ didapati 3 kesalahan seharusnya kategori SEDANG namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG namun dikategorikan TIDAK SEHAT.
@@ -122,7 +126,7 @@ Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan 
 
 3. _Classification Report_
         
-  **_Random Forest_**
+  **_Classification Report Random Forest_:**
     
   ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
  
@@ -141,7 +145,7 @@ Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan 
     - Untuk Kelas 1, _F1-Score_ adalah 0.98.
     - Untuk Kelas 2, _F1-Score_ adalah 1.00.
 
-  **KNN**
+  **_Classification Report KNN_:**
 
   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-knn.png?raw=true)
   
