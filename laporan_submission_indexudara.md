@@ -25,7 +25,7 @@ Tujuan dari proyek ini adalah sebagai berikut:
 
 
 
-## Data Understanding
+## _Data Understanding_
 Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 yang didapatkan dari **Jakarta Open Data** (https://data.jakarta.go.id/). Data ini terdiri dari 3655 baris (hari) dengan 11 variabel yaitu:
 
 **Data Numerikal:**
@@ -50,7 +50,7 @@ Data yang digunakan adalah data indeks standar pencemaran udara tahun 2020-2021 
 1. Distribusi kelas:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/jml_per_kat.png?raw=true)
 
-   >Terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data' akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3, maka pada klasifikasi ini hanya akan       digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
+   >Terdapat 5 kategori yaitu sedang, baik, tidak sehat, sangat tidak sehat, dan tidak ada data. Kategori 'tidak ada data' akan dihapus, dan karena jumlah data dengan kategori sangat tidak sehat hanya 3 (sangat sedikit), maka pada klasifikasi ini hanya akan       digunakan tiga kategori saja yaitu sedang, baik, dan tidak sehat.
 
 3. Pesebaran kelas di 5 stasiun:
    ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/5_stasiun.png?raw=true)
@@ -108,55 +108,56 @@ Selain penilaian dengan _accurary_score_ digunakan pula metrik evaluasi yaitu _C
 1. _Confusion Matrix_
 
 Dari data test dilakukan prediksi pada kedua model kemudian dibandingkan dengan nilai aktual dan disajikan dengan metrik berikut:
-
+**_Confusion Matrix Random Forest_:**
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-rf.png?raw=true)
 
 > Dengan _Random Forest_ didapati 2 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK.
 
+**_Confusion Matrix KNN_:**
 ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/confusion-knn.png?raw=true)
 
-> Sementara dengan _KNN_ didapati 3 kesalahan seharusnya kategori SEDANG, namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT, namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG, namun dikategorikan TIDAK SEHAT.
+> Sementara dengan _KNN_ didapati 3 kesalahan seharusnya kategori SEDANG namun dikategorikan BAIK, 4 kesalahan seharusnya kategori TIDAK SEHAT namun dikategorikan SEDANG, dan 4 kesalahan seharusnya kategori SEDANG namun dikategorikan TIDAK SEHAT.
 
 
 
 3. _Classification Report_
         
   **_Random Forest_**
-
+    
   ![kelas](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-rf.png?raw=true)
  
   - _Precision_: Proporsi dari prediksi positif yang benar-benar positif.
-  Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
-  Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
-  Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 100% dari mereka benar-benar adalah Kelas 2.
+      - Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 90% dari mereka benar-benar adalah Kelas 0.
+      - Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 100% dari mereka benar-benar adalah Kelas 1.
+      - Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 100% dari mereka benar-benar adalah Kelas 2.
 
   - _Recall_ (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar.
-    Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
-    Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
-    Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 96% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 100% dari mereka diprediksi dengan benar oleh model.
     
   - _F1-Score_: Rata-rata harmonik dari _precision_ dan _recall_. Memberikan kesimbangan antara _precision_ dan _recall_.
-    Untuk Kelas 0, F1-Score adalah 0.95.
-    Untuk Kelas 1, F1-Score adalah 0.98.
-    Untuk Kelas 2, F1-Score adalah 1.00.
+    - Untuk Kelas 0, _F1-Score_ adalah 0.95.
+    - Untuk Kelas 1, _F1-Score_ adalah 0.98.
+    - Untuk Kelas 2, _F1-Score_ adalah 1.00.
 
   **KNN**
 
   ![gambar](https://github.com/yocimm/air_pollution_classification/blob/main/gambar/classreport-knn.png?raw=true)
   
   - _Precision_: Proporsi dari prediksi positif yang benar-benar positif.
-  Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
-  Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 91% dari mereka benar-benar adalah Kelas 1.
-  Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 90% dari mereka benar-benar adalah Kelas 2.
+      - Untuk Kelas 0, dari semua prediksi yang diberi label sebagai Kelas 0, 86% dari mereka benar-benar adalah Kelas 0.
+      - Untuk Kelas 1, dari semua prediksi yang diberi label sebagai Kelas 1, 91% dari mereka benar-benar adalah Kelas 1.
+      - Untuk Kelas 2, dari semua prediksi yang diberi label sebagai Kelas 2, 90% dari mereka benar-benar adalah Kelas 2.
 
   - _Recall_ (Sensitivitas): Proporsi dari observasi positif yang benar-benar diprediksi dengan benar.
-    Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
-    Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
-    Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 0, dari semua observasi yang sebenarnya adalah Kelas 0, 100% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 1, dari semua observasi yang sebenarnya adalah Kelas 1, 86% dari mereka diprediksi dengan benar oleh model.
+    - Untuk Kelas 2, dari semua observasi yang sebenarnya adalah Kelas 2, 90% dari mereka diprediksi dengan benar oleh model.
     
   - _F1-Score_: Rata-rata harmonik dari _precision_ dan _recall_. Memberikan kesimbangan antara _precision_ dan _recall_.
-    Untuk Kelas 0, _F1-Score_ adalah 0.93.
-    Untuk Kelas 1, _F1-Score_ adalah 0.89.
-    Untuk Kelas 2, _F1-Score_ adalah 0.90.
+    - Untuk Kelas 0, _F1-Score_ adalah 0.93.
+    - Untuk Kelas 1, _F1-Score_ adalah 0.89.
+    - Untuk Kelas 2, _F1-Score_ adalah 0.90.
 
-**Berdasarkan hasil evaluasi yang telah dilakukan, _Random Forest_ memiliki performa lebih baik daripada _KNeighbors_ dalam melakukan klasifikasi indeks udara di Jakarta.**
+**Berdasarkan hasil evaluasi yang telah dilakukan, _Random Forest_ memiliki performa lebih baik daripada _KNeighbors_ dalam melakukan klasifikasi indeks pencemaran udara di Jakarta.**
